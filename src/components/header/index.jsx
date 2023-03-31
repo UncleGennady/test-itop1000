@@ -4,22 +4,31 @@ import logo from '../../logo.svg';
 import Container from "../container";
 
 import './styles.scss'
+import {useGetCurrencyQuery} from "../../store/currencyApi";
+import {getDate, rounded} from "../../utils";
 const Header = () => {
-        return (
+    const currentDate = getDate()
+    const {data:usd, isLoading:usdLoading} = useGetCurrencyQuery({currentDate, valcode:"USD"})
+    const {data:eur, isLoading:eurLoading} = useGetCurrencyQuery({currentDate, valcode:"EUR"})
+
+    return (
             <header className="header">
                 <Container>
                     <nav className="header__nav">
                         <div className="logo">
                             <img className="App-logo" src={logo} alt="logo" />
                         </div>
-                        <ul className="header__currency">
+                        {usdLoading && eurLoading ? <div>Loading...</div> :
+
+                                !!usd && !!eur && <ul className="header__currency">
                             <li>
-                                <b>USD:</b> 36,67
+                            <b>USD:</b> {rounded(usd[0].rate, 2)}
                             </li>
                             <li>
-                                <b>EUR:</b> 39,77
+                            <b>EUR:</b> {rounded(eur[0].rate, 2)}
                             </li>
-                        </ul>
+                            </ul>
+                        }
                     </nav>
                 </Container>
             </header>

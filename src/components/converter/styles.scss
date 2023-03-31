@@ -4,46 +4,4 @@
   flex-direction: column;
   align-items: center;
   gap:40px;
-  &__item{
-    font-size: 18px;
-    display: flex;
-    gap: 30px;
-    input{
-      font-size: inherit;
-      padding: 10px 20px;
-      background: transparent;
-      border-radius: 10px;
-      border: 0;
-      outline: none;
-      box-shadow: 0 0 2px 2px #61DAFBFF;
-      transition: .3s;
-      &:hover{
-        box-shadow: 0 0 2px 5px #61DAFBFF;
-      }
-      &:focus{
-        box-shadow: 0 0 2px 5px #61DAFBFF;
-      }
-    }
-    select{
-      font-size: inherit;
-      padding: 10px 20px;
-      background: transparent;
-      border-radius: 10px;
-      border: 0;
-      outline: none;
-      box-shadow: 0 0 2px 2px #61DAFBFF;
-      transition: .3s;
-      &:hover{
-        box-shadow: 0 0 2px 5px #61DAFBFF;
-      }
-      &:focus{
-        box-shadow: 0 0 2px 5px #61DAFBFF;
-      }
-      option{
-        margin: 40px;
-        background: #02101a;
-        color: #61DAFBFF;
-      }
-    }
   }
-}

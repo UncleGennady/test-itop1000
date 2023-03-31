@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const currencyApi = createApi({
     reducerPath: 'currencyApi',
-    baseQuery: fetchBaseQuery({ baseUrl:"https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange"}),
+    baseQuery: fetchBaseQuery({ baseUrl:process.env.REACT_APP_API_URL}),
     endpoints: (builder) => ({
         getAllCurrency: builder.query({
             query: (currentDate) => `?&date=${currentDate}&json`,
